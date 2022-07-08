@@ -68,7 +68,9 @@ module.exports = class Session extends EventEmitter {
         config.audioRedForOpus ?
           '/WebRTC-Audio-Red-For-Opus/Enabled' : ''}`,
       // '--renderer-process-limit=1',
-      '--single-process',
+      // Following 2 lines were needed for chrome-103:
+      '--disable-gpu',
+      // '--single-process',
       '--use-fake-ui-for-media-stream',
       '--use-fake-device-for-media-stream',
       '--mute-audio',
@@ -100,6 +102,8 @@ module.exports = class Session extends EventEmitter {
     try {
       // log.debug('defaultArgs:', puppeteer.defaultArgs());
       this.browser = await puppeteer.launch({
+        // TODO: add this to config
+        // dumpio: true,
         headless: !config.display,
         executablePath: config.chromiumPath,
         env,

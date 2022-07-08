@@ -31,7 +31,7 @@
     "pidusage": "^2.0.21",
     "prom-client": "https://github.com/siimon/prom-client#master",
     "ps-tree": "^1.2.0",
-    "puppeteer": "^10.0.0",
+    "puppeteer": "^14.2.0",
     "request": "^2.88.2",
     "requestretry": "^5.0.0",
     "sprintf-js": "^1.1.2"
